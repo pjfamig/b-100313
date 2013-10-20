@@ -1,12 +1,20 @@
 <% provide(:title, 'Home') %>
 <div class="center hero-unit">
-  <h1>Esther Kim!</h1>
 
+
+<% if signed_in? %>
+	<h1>Hi, <%= current_user.name %>!</h1>
   <h2>
     This is the home page for 
     <a href="http://dailydocket.org/">dailydocket.org</a>.
   </h2>
-
+<% else %>
+	<h1>Welcome!</h1>
+	<h2>This is the home page for 
+		<a href="http://dailydocket.org/">dailydocket.org</a>.
+	</h2>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+
+<% end %>
 </div>
 
